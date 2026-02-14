@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +23,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
+    
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        >
+        
+        <div className="flex flex-col justify-center w-full  h-full items-center">
+          <div id="circle" className="z-50 flex fixed pointer-events-none justify-center items-center w-10 h-10 top-[-20] left-[-20] border-white border-2 rounded-full ">
+          </div>
+          <div id="innercircle" className="z-50 pointer-events-none fixed top-[-2] left-[-2] w-2 h-2 bg-white rounded-full"></div>
+
+          <div className="flex flex-col justify-center max-w-7xl w-full select-none  h-full items-center">
+            <Navbar/>
+            <div className="px-5 w-full">
+              {children}
+            </div>
+          </div>
+        </div>
+
       </body>
     </html>
   );

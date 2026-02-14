@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -20,7 +16,69 @@
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  cursor: auto;
+}
+
+.font-timesnewroman{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.navbg{
+  background: hsl(white, 50%, 50%);
+  backdrop-filter: blur(5px);
+}
+
+.projectbg{
+  background: hsl(white, 90%, 80%);
+  backdrop-filter: blur(7px);
+}
+
+
+ .container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #8df0cc;
+    bottom: 50px;
+    transform: scaleX(0);
+}
+
+.wrapper {
+  height: fit-content;
+  font-family: monospace;
+}
+
+.font-monospace{
+  font-family: monospace;
+}
+
+.font-impact{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.typing-demo {
+  width: auto;
+  animation: typing 2s steps(20), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: Impact;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
 }
