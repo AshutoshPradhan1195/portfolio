@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react"
 import { GreetingSection } from "./pages/Greeting"
 import ProjectsSection from "./pages/Projects"
 import SkillsSection from "./pages/Skills"
+import Timeline from "./pages/Timeline"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
@@ -28,7 +29,6 @@ export default function Home() {
       const circle = {x:0, y:0}
       const innercircle = {x:0, y:0}
 
-      
   
       window.addEventListener("mousemove", (e) => {
         mouse.x = e.x;
@@ -42,14 +42,14 @@ export default function Home() {
         innercircle.x+= (mouse.x - innercircle.x) * 0.5;
         innercircle.y+= (mouse.y - innercircle.y) * 0.5;
 
-
+        
         if(circleElement) {
           circleElement.style.transform = `translate(${circle.x}px, ${circle.y}px)`;
         };
         if(innercircleElement){
           innercircleElement.style.transform = `translate(${innercircle.x}px, ${innercircle.y}px)`;
-
         }
+
         window.requestAnimationFrame(tick);
       }
 
@@ -64,6 +64,7 @@ export default function Home() {
         <GreetingSection id={1}/>
         <ProjectsSection id={2}/>
         <SkillsSection id={3}/>
+        <Timeline id={4}/>
 
         <motion.div className="progress z-50" style={{ scaleX }} />
     </main>

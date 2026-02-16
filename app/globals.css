@@ -37,7 +37,7 @@ body {
 
 
  .container {
-    height: 90vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -82,3 +82,101 @@ body {
     width: 0
   }
 }
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(35, 45, 134, 0.8) 0%,
+    rgba(35, 45, 134, 0.6) 30%,
+    rgba(35, 45, 134, 0.3) 55%,
+    rgba(35, 45, 134, 0) 75%
+  );
+
+  border-radius: 50%;
+  opacity: 0.8 ;
+  pointer-events: none;
+}
+
+
+.blob2 {
+  width: 600px;
+  height: 600px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(35, 45, 134, 0.8) 0%,
+    rgba(35, 45, 134, 0.6) 30%,
+    rgba(35, 45, 134, 0.3) 55%,
+    rgba(35, 45, 134, 0) 75%
+  );
+
+  border-radius: 50%;
+  z-index: -1 !important; 
+  opacity: 0.8 ;
+  pointer-events: none;
+}
+
+
+
+.blob3 {
+  width: 400px;
+  height: 400px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(35, 45, 134, 0.8) 0%,
+    rgba(35, 45, 134, 0.6) 30%,
+    rgba(35, 45, 134, 0.3) 55%,
+    rgba(35, 45, 134, 0) 75%
+  );
+
+  border-radius: 50%;
+  opacity: 0.8 ;
+  pointer-events: none;
+}
+
+
+.blob4 {
+  width: 400px;
+  height: 400px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(35, 45, 134, 0.8) 0%,
+    rgba(35, 45, 134, 0.6) 30%,
+    rgba(35, 45, 134, 0.3) 55%,
+    rgba(35, 45, 134, 0) 75%
+  );
+
+  border-radius: 50%;
+  opacity: 0.8 ;
+  pointer-events: none;
+}
+
+
+.checkitoutbg{
+ background: linear-gradient(
+    135deg,
+    rgba(35, 45, 134, 0.8) 0%,
+    rgba(35, 45, 134, 0.6) 30%,
+    rgba(35, 45, 134, 0.3) 75%,
+    rgba(35, 45, 134, 0) 100%
+  );
+    background-color: rgba(0, 0, 0, 0.4);
+  
+  /* Apply the blur effect to the background behind the element */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  
+  /* Additional styling for the box itself */
+  color: white;
+  text-align: center;
+  backdrop-filter: blur(100px);
+
+
+}
+
+

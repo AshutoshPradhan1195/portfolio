@@ -28,17 +28,18 @@ export default function RootLayout({
     
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#0a0a0a]`}
         >
         
         <div className="flex flex-col justify-center w-full  h-full items-center">
+
           <div id="circle" className="z-50 flex fixed pointer-events-none justify-center items-center w-10 h-10 top-[-20] left-[-20] border-white border-2 rounded-full ">
           </div>
           <div id="innercircle" className="z-50 pointer-events-none fixed top-[-2] left-[-2] w-2 h-2 bg-white rounded-full"></div>
 
           <div className="flex flex-col justify-center max-w-7xl w-full select-none  h-full items-center">
             <Navbar/>
-            <div className="px-5 w-full">
+            <div className="w-full">
               {children}
             </div>
           </div>

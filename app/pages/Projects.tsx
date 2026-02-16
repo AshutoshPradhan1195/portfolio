@@ -36,18 +36,18 @@ const data = [
 export default function ProjectsSection({ id }: { id: number }) {
     const projectsRef = useRef(null)
     return (
-        <>
-            <motion.section  className="w-full h-screen container sticky! top-0 z-0">
+        <>  
+            <motion.section  className="w-full  border-t border-gray-700 max-w-7xl h-screen! container place-items-center justify-center self-center items-center sticky! top-0 z-0">
+
                 <AppearIn>
-                    <motion.div className=" bg-red-500/20 px-100 py-50" >
-                        <h1 className="text-5xl tracking-tight font-timesnewroman text-center">
+                    <motion.div className="checkitoutbg  md:p-40 md:py-40 p-30 px-20 z-50 text-center justify-center items-center flex flex-col self-center" >
+                        <h1 className="text-5xl tracking-tight font-timesnewroman text-center justify-center items-center flex flex-col">
                             Check out my work!
                         </h1>
                     </motion.div>
                 </AppearIn>
             </motion.section>
-
-            <Projects ref={projectsRef} />
+            <Projects ref={projectsRef}/>
         </>
     )
 }
@@ -59,7 +59,7 @@ const Projects = forwardRef<HTMLDivElement>((props, ref) => {
     return (
         <div
             ref={ref}
-            className="grid grid-cols-2 gap-10 place-items-center projectbg  justify-between"
+            className="grid py-40  md:grid-cols-2 grid-cols-1 w-full gap-5 px-5  projectbg  md:justify-center  justify-center items-center place-items-center"
         >
             {data.map((project, ind) => {
                 return <ProjectCard key={ind} id={ind} title={project.title} height={project.height} width={project.width} image={project.image} url={project.url}/>
@@ -97,10 +97,9 @@ function ProjectCard({id,title, image, url, width, height}:{id:number,title:stri
                 innerCircle.style.backgroundColor = "white"
             }
         }}
-          whileHover={{ scale: 1.03 }}
 
         className="flex flex-col gap-0 hover:cursor-pointer z-40">
-            <Image src={image} alt="Image1" width={width} height={height} objectFit="cover" className="max-h-150 max-w-125 object-cover object-top" />
+            <Image src={image} alt="Image1" width={width} height={height} objectFit="cover" className="rounded-2xl max-h-120 max-w-120  object-cover object-top" />
             <div className="flex flex-row justify-between">
                 <span className="font-timesnewroman text-3xl">{title}</span>
             </div>
