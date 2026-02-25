@@ -9,7 +9,6 @@ import {
 import { useEffect, useRef } from "react"
 import { GreetingSection } from "./pages/Greeting"
 import ProjectsSection from "./pages/Projects"
-import SkillsSection from "./pages/Skills"
 import Timeline from "./pages/Timeline"
 
 export default function Home() {
@@ -60,12 +59,10 @@ export default function Home() {
 
   
   return (
-    <main className="min-h-screen w-full flex flex-col justify-start items-center py-10 ">
+    <main className="min-h-screen w-full flex flex-col justify-start items-center pt-10 ">
         <GreetingSection id={1}/>
-        <ProjectsSection id={2}/>
-        <SkillsSection id={3}/>
-        <Timeline id={4}/>
-
+        <Timeline id={2}/>
+        <ProjectsSection id={3}/>
         <motion.div className="progress z-50" style={{ scaleX }} />
     </main>
   );

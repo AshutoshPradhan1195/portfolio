@@ -120,7 +120,7 @@ export function GreetingSection({ id }: { id: number }) {
                     Hey, I am
                 </div>
 
-                <h1 className=" text-9xl wrapper h-[10px]!  ">
+                <h1 className=" text-9xl wrapper h-2.5!  ">
                     <div className="typing-demo ">
                        {text}
                     </div>
