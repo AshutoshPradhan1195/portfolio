@@ -1,4 +1,6 @@
-import {motion} from "motion/react"
+"use client"
+
+import { motion } from "motion/react"
 import kakhani from "../images/kakhani.png"
 import anyani from "../images/anyani.png"
 import heroeshive from "../images/heroeshive.png"
@@ -6,43 +8,53 @@ import Image, { StaticImageData } from "next/image"
 
 const projects = [
     {
-        title:"Ka Khani",
-        image:kakhani,
-        width:500,
-        height:500,
-        url:"https://kakhani.netlify.app/"
+        title: "Heroeshive",
+        image: heroeshive,
+        url: "https://heroeshive.com/",
+        description: "A creative service platform delivering scalable branding, digital systems, and high-performance web experiences."
     },
     {
-        title:"Any Ani",
-        image:anyani,
-        width:600,
-        height:600,
-        url:"https://anyani.netlify.app/"
+        title: "Ka Khani",
+        image: kakhani,
+        url: "https://kakhani.netlify.app/",
+        description: "A restaurant review platform where user submissions are analyzed and automatically rated using NLP-driven sentiment modeling."
     },
     {
-        title:"Heroeshive",
-        image:heroeshive,
-        width:600,
-        height:500,
-        url:"https://heroeshive.com/"
-    },
+        title: "Any Ani",
+        image: anyani,
+        url: "https://anyani.netlify.app/",
+        description: "An AI-powered animated image generator built on a ResNet-18 neural network architecture."
+    }
 ]
 
-
-function ProjectCard({id,title, image, url, width, height}:{id:number,title:string, image:StaticImageData, url:string, width:number, height:number }){
+function ProjectCard({
+    title,
+    image,
+    description,
+    url,
+}: {
+    title: string
+    image: StaticImageData
+    description: string
+    url: string
+}) {
     return (
-    <motion.a
-        href={url}
-        key={id}
+        <motion.a
+            href={url}
+            target="_blank"
+            whileHover={{ scale: 1.03 }}
+
         onHoverStart={() => {
             const circleElement = document.getElementById("circle")
             const innerCircle = document.getElementById("innercircle")
 
             if(circleElement){
-                circleElement.style.borderColor = "black"
+                circleElement.style.borderColor = "#3e4ab299"
+                circleElement.style.borderWidth = "4px"
             }
             if(innerCircle){
-                innerCircle.style.backgroundColor = "black"
+                innerCircle.style.backgroundColor = "#3e4ab299"
+
             }
         }}
         onHoverEnd={() => {
@@ -51,60 +63,74 @@ function ProjectCard({id,title, image, url, width, height}:{id:number,title:stri
 
             if(circleElement){
                 circleElement.style.borderColor = "white"
+                circleElement.style.borderWidth = "2px"
+
             }
             if(innerCircle){
                 innerCircle.style.backgroundColor = "white"
             }
         }}
 
-        className="flex flex-col gap-0 hover:cursor-pointer z-40 ">
-            <Image src={image} alt="Image1"   className="aspect-auto  object-cover object-center" />
-            <div className="flex flex-row justify-between">
-                <span className="font-timesnewroman text-3xl bg-[#0a0a0a] px-1 w-full">{title}</span>
+        
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="flex flex-row items-center text-center gap-6 flex-row-reverse cursor-pointer"
+        >
+            <div className="relative w-[400px] max-w-[90vw]">
+                <Image
+                    src={image}
+                    alt={title}
+                    className="object-cover rounded-xl   w-full h-auto"
+                />
             </div>
 
+            <div className="flex flex-col justify-end  text-left w-[250px]  tracking-tight">
+
+                <h2 className="font-elegant text-4xl mb-2">
+                    {title}
+                </h2>
+                <span className="text-gray-400 text-sm leading-tight">{description}</span>
+            </div>
         </motion.a>
     )
 }
 
-
-export default function ProjectSection({ id }: { id: number }) {
+export default function ProjectSection({id}: {id: number}) {
     return (
-        <section className="relative w-full bg-[#0a0a0a] border-t border-gray-700 z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2">
+        <section  className="w-full z-4 bg-[#0a0a0a] text-white border-t border-gray-700">
 
-                <div className="sticky top-0 h-screen flex items-center px-10">
-                    <div className="max-w-md">
-                        <h1 className="font-timesnewroman text-5xl mb-5">
-                            Some Of My Work
-                        </h1>
+            {/* HEADER */}
+            <div className=" text-left min-h-fit pt-30 pb-20 flex flex-col justify-center items-left  px-6">
+                <div className="max-w-2xl">
+                    <h1 className="font-elegant text-6xl mb-2">
+                        My Work
+                    </h1>
 
-                        <p className="text-gray-400 leading-relaxed">
-                            Designing and engineering scalable digital systems —
-                            from high-performance frontends to intelligent backend
-                            architectures powered by data and AI.
-                        </p>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                        Designing and engineering scalable digital systems —
+                        from high-performance frontends to intelligent backend
+                        architectures powered by data and AI.
+                    </p>
+                </div>
+            </div>
+
+            {/* PROJECTS */}
+            <div className="flex flex-col  w-full pb-30  gap-25">
+
+                {projects.map((project, index) => (
+                    <div
+                        key={index}
+                        className={index %2 === 0? "min-h-fit w-full items-center justify-center flex md:items-end md:justify-end px-6" : "min-h-fit w-full flex md:items-center md:justify-center px-6"}
+                    >
+                        <ProjectCard
+                            description={project.description}
+                            title={project.title}
+                            image={project.image}
+                            url={project.url}
+                        />
                     </div>
-                </div>
-
-                <div className="relative">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            className="sticky top-0 h-screen! flex items-center justify-center px-10"
-                            style={{ zIndex: index }}
-
-                            viewport={{ amount: 0.7 }}
-                            transition={{ duration: 0.6 }}
-                        >
-
-                                <ProjectCard key={index} id={index} title={project.title} height={project.height} width={project.width} image={project.image} url={project.url}/>
-                        </motion.div>
-                    ))}
-                </div>
+                ))}
 
             </div>
         </section>
     )
 }
-

@@ -1,15 +1,14 @@
 "use client"
 import {
     motion,
-    MotionValue,
     useScroll,
     useSpring,
-    useTransform,
 } from "motion/react"
-import { useEffect, useRef } from "react"
+import { useEffect } from "react"
 import { GreetingSection } from "./pages/Greeting"
 import ProjectsSection from "./pages/Projects"
 import Timeline from "./pages/Timeline"
+
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
@@ -19,6 +18,7 @@ export default function Home() {
       restDelta: 0.001,
   })
 
+    //cursor effect
     useEffect((
     ) => {
       const circleElement = document.getElementById("circle");
@@ -55,16 +55,19 @@ export default function Home() {
       tick()
   
     }, [])
-  
+
 
   
   return (
-    <main className="min-h-screen w-full flex flex-col justify-start items-center pt-10 ">
-        <GreetingSection id={1}/>
-        <Timeline id={2}/>
-        <ProjectsSection id={3}/>
-        <motion.div className="progress z-50" style={{ scaleX }} />
-    </main>
+    <>
+      <main  className="min-h-screen w-full flex flex-col justify-start items-center pt-10 ">
+          <GreetingSection id={1}/>
+          <Timeline id={2}/>
+          <ProjectsSection id={3}/>
+
+      </main>
+    </>
+
   );
 }
 

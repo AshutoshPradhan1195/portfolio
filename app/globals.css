@@ -15,6 +15,7 @@
   }
 }
 
+
 body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
@@ -25,6 +26,9 @@ body {
   font-family: 'Times New Roman', Times, serif;
 }
 
+.font-elegant{
+  font-family: 'Cormorant Garamond', serif;
+}
 .navbg{
   background: hsl(white, 50%, 50%);
   backdrop-filter: blur(5px);

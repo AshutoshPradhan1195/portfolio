@@ -1,4 +1,5 @@
 "use client"
+import { ScrollTrigger } from "gsap/all"
 import AppearIn from "../components/motion/AppearIn"
 import {
     motion,
@@ -7,17 +8,25 @@ import {
     useSpring,
     useTransform,
 } from "motion/react"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 export default function Timeline({id}: {id: number}) {
+    useEffect(() => {
+        ScrollTrigger.create({
+            trigger: `#timeline-head`,
+            start: "top top",
+            pin: true,            
+            end: "+=8000px",
+        })
+    })
     return (
         <>
-            <motion.div className=" w-full h-screen border-t border-gray-700 bg-[#0a0a0a] z-1 sticky top-0 px-5 flex justify-center items-center">
+            <motion.div id="timeline-head" className=" w-full h-screen border-t border-gray-700 bg-[#0a0a0a] z-1 px-5 flex justify-center items-center">
                 <motion.div className="  md:p-40 md:py-40 p-30 px-20 z-1 text-center justify-center items-center flex flex-col self-center" >
                    <AppearIn>
                         <motion.div className="checkitoutbg  md:p-40 md:py-40 p-30  z-50 text-center justify-center items-center flex flex-col self-center" >
-                            <h1 className="text-5xl tracking-tight font-timesnewroman text-center justify-center items-center flex flex-col">
-                                Take a look at my timeline
+                            <h1 className="text-6xl tracking-tight font-elegant text-center justify-center items-center flex flex-col">
+                                See My Timeline
                             </h1>
                         </motion.div>
                     </AppearIn> 
@@ -36,7 +45,7 @@ function useParallax(value: MotionValue<number>, distance: number) {
 function Image({ title, date, description }: { title:string, date:string, description:string }) {
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({ target: ref })
-    const y = useParallax(scrollYProgress, 300)
+    const y = useParallax(scrollYProgress, 150)
 
     return (
         <section className="img-container">
@@ -57,13 +66,19 @@ function Image({ title, date, description }: { title:string, date:string, descri
 }
 
 function Parallax() {
-    const { scrollYProgress } = useScroll()
 
     return (
-        <div className="z-1 projectbg w-full  ">
-            {events.map((item, ind) => (
-                <Image key={item.date}  title={item.title} description={item.description} date={item.date} />
-            ))}
+        <div className="grid md:grid-cols-2  z-1 projectbg w-full  ">
+            {events.map((item, ind) => {
+  
+                return ind%2 === 0 ? (
+                    <Image key={item.date}  title={item.title} description={item.description} date={item.date} />
+                ) : (
+                    <Image key={item.date} title={item.title} description={item.description} date={item.date} />
+                )
+                
+            })}
+
             <StyleSheet />
         </div>
     )
@@ -78,7 +93,7 @@ function StyleSheet() {
             height: 100vh;
             display: flex;
             justify-content: center;
-                        scroll-snap-align: start;
+            scroll-snap-align: start;
 
             align-items: center;
             position: relative;

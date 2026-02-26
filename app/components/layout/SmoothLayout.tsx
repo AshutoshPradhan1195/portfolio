@@ -1,0 +1,26 @@
+"use client"
+
+import { useEffect } from "react";
+import gsap from "gsap"
+import { ScrollTrigger, ScrollSmoother } from "gsap/all"
+
+export default function SmoothProvider() {
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+
+    const smoother = ScrollSmoother.create({
+      wrapper: "#smooth-wrapper",
+      content: "#smooth-content",
+      smooth: 1,
+      effects: true,
+      normalizeScroll: true,
+      ignoreMobileResize: true,
+    })
+
+    return () => {
+      smoother.kill()
+    }
+  }, [])
+
+  return null
+}

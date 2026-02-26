@@ -5,7 +5,7 @@ import MoveYAxisOnHover from "../motion/MoveYAxisOnHover";
 
 function Navbar(){
     return (
-        <nav className="z-40 w-full h-13 px-5 pt-4 box-border sticky top-0 flex flex-row justify-between items-center navbg">
+        <nav className="z-40 w-full h-13 px-5 pt-4 box-border sticky! top-0 flex flex-row justify-between items-center navbg" >
             <div className="border p-1 px-2 hover:cursor-pointer font-timesnewroman ">
                 AP
             </div>  

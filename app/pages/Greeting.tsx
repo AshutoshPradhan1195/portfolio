@@ -1,6 +1,8 @@
 import { useScroll } from "motion/react"
 import { useEffect, useRef, useState } from "react"
 import { useParallax } from "../util"
+import gsap from "gsap"
+import { ScrollTrigger, ScrollSmoother } from "gsap/all"
 
 
 const titles = [
@@ -11,6 +13,9 @@ const titles = [
 
 
 export function GreetingSection({ id }: { id: number }) {
+
+
+
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({ target: ref })
     const y = useParallax(scrollYProgress, 300)
@@ -107,7 +112,7 @@ export function GreetingSection({ id }: { id: number }) {
 
 
     return (
-        <section className="z-1 overflow-hidden  h-screen w-full">
+        <section  className="z-1 sticky overflow-hidden  w-full h-screen!">
             <div ref={blob1Ref} className="blob1 absolute left-[200px] top-0 -z-10" />
             <div ref={blob2Ref} className="blob2 absolute right-[100px] bottom-0 -z-10" />
             <div ref={blob3Ref} className="blob3 absolute right-[200px] top-0 -z-10" />
