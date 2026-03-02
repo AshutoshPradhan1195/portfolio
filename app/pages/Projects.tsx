@@ -45,26 +45,22 @@ function ProjectCard({
             href={url}
             target="_blank"
             id={title}
-            className="group relative w-[60vw] h-[70vh] aspect-video cursor-pointer"
+            className="group relative md:w-[70vw] w-[90vh] h-[70vh]  cursor-pointer border rounded-xl"
         >
             <div className="relative w-full h-full perspective">
 
-                {/* CARD INNER */}
                 <div className="relative w-full h-full duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
-2px
-                    {/* FRONT */}
-                    <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-[#0a0a0a] text-white p-[2px] flex flex-col">
+                    <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden  text-white flex flex-col">
                         <div className="relative w-full flex-1">
                             <Image
                                 src={image}
                                 alt={title}
-                                className="object-cover object-center rounded-lg aspect-video w-full h-full"
+                                className="object-cover rounded-lg w-full h-full"
                             />
                         </div>
 
                     </div>
 
-                    {/* BACK */}
                     <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-xl bg-[#0a0a0a] text-white  p-10 flex flex-col justify-center">
                         <h2 className="font-elegant text-4xl font-bold mb-6">
                             {title}
@@ -97,7 +93,7 @@ export default function ProjectSection({id}: {id: number}) {
                 pin: true,
                 pinSpacing: false,
                 scrub: true,
-                markers:true
+                
             })
         })
 
@@ -109,10 +105,9 @@ export default function ProjectSection({id}: {id: number}) {
 
     return (
 
-        <>
-        <div id="projectContainer" className=" w-full z-4 h-full  flex items-center justify-center ">
+        <section id="projectContainer" className="w-full z-4 h-full  flex items-center justify-center ">
 
-            <motion.section  className=" w-full h-full items-center rounded-4xl justify-center px-5  overflow-hidden bg-white text-black!  "
+            <motion.section  className=" w-full h-full items-center rounded-4xl justify-center xl:px-10 px-5  overflow-hidden bg-white text-black!  "
             onHoverStart={() => {
                 const circleElement = document.getElementById("circle")
                 const innerCircle = document.getElementById("innercircle")
@@ -142,9 +137,9 @@ export default function ProjectSection({id}: {id: number}) {
             >
 
                 {/* HEADER */}
-                <div className="text-left   py-10   flex flex-col justify-center items-left">
+                <div className="text-left py-10   flex flex-col justify-center items-left">
                     <div className="max-w-2xl">
-                        <h1 className="font-elegant text-6xl mb-2 font-bold">
+                        <h1 className="font-elegant md:text-6xl text-4xl mb-2 font-bold">
                             Selected Work
                         </h1>
 
@@ -163,7 +158,7 @@ export default function ProjectSection({id}: {id: number}) {
                     <div
                         key={index}
                         data-project
-                        className="h-screen w-full flex items-center justify-center px-6 "
+                        className="h-screen w-full flex items-center justify-center md:px-5 "
                     >
                             <ProjectCard
                                 description={project.description}
@@ -176,8 +171,7 @@ export default function ProjectSection({id}: {id: number}) {
 
                 </div>
             </motion.section>
-        </div>
+        </section>
 
-        </>
     )
 }

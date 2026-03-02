@@ -1,24 +1,11 @@
 "use client"
-import {
-    motion,
-    useScroll,
-    useSpring,
-} from "motion/react"
 import { useEffect } from "react"
 import { GreetingSection } from "./pages/Greeting"
 import ProjectsSection from "./pages/Projects"
-import Timeline from "./pages/Timeline"
-import TimelineSection from "./pages/Timeline"
-import Footer from "./pages/Footer"
+import AboutSection from "./pages/About"
 
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-      stiffness: 100,
-      damping: 30,
-      restDelta: 0.001,
-  })
 
     //cursor effect
     useEffect((
@@ -58,15 +45,13 @@ export default function Home() {
   
     }, [])
 
-
   
   return (
     <>
       <main  className="min-h-screen w-full flex flex-col justify-start items-center pt-10 ">
           <GreetingSection id={1}/>
           <ProjectsSection id={2}/>
-          <TimelineSection id={3}/>
-          <Footer id={4}/>
+          <AboutSection id={3}/>
       </main>
     </>
 

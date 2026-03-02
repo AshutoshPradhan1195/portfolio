@@ -3,10 +3,11 @@
 import gsap, { SplitText } from "gsap/all";
 import { motion } from "motion/react"
 import { useEffect } from "react"
+
 import MoveYAxisOnHover from "../components/motion/MoveYAxisOnHover";
 
 
-export default function Footer({id}: {id: number}) {
+export default function Footer() {
 
     useEffect(() => {
         gsap.registerPlugin(SplitText);
@@ -26,7 +27,6 @@ export default function Footer({id}: {id: number}) {
                 start: "top center",
                 end: "bottom bottom",
                 scrub: 0.3,
-                markers: true
             }
             })
             .set(
@@ -39,13 +39,13 @@ export default function Footer({id}: {id: number}) {
             0.1
             );
         });
-    })
+    }, [])
 
     return (
 
         <>
-            <div  className=" w-full z-7 h-fit flex items-center justify-center   ">
-                <motion.section  className="w-full h-full  flex flex-row justify-between items-center py-4   text-black! bg-white  px-5"
+            <div  className=" w-full z-7 h-fit flex items-center justify-center">
+                <motion.section  className="w-full h-full flex md:flex-row flex-col justify-between items-center md:gap-2 gap-2 py-4  text-black! bg-white  xl:px-10 px-5"
                     onHoverStart={() => {
                     const circleElement = document.getElementById("circle")
                     const innerCircle = document.getElementById("innercircle")
@@ -73,23 +73,63 @@ export default function Footer({id}: {id: number}) {
                         }
                     }}
                 >
-                    <div className="text-6xl font-bold">A.P</div>
+                    <div className="text-8xl font-bold ">A.P.</div>
                     
-                    <div className="flex flex-row gap-15">
+                    <div className="flex flex-row gap-15 max-md:text-left">
                         <div className="flex flex-col ">
-                            <div className="text-lg mb-2">Contact</div>
-                            <div className="text-gray-500 ">LinkedIn</div>
-                            <div className="text-gray-500">GitHub</div>
-                            <div className="text-gray-500">Email</div>
+                            <div className="text-lg mb-2 ">Contact</div>
+                            <motion.a 
+                                href="https://www.linkedin.com/in/ashutosh-pradhan-61844231b/"
+                                target="_blank"
+                                className="hover:cursor-pointer py-1 text-gray-500" 
+                                whileHover={{translateY:-2, textDecoration:"underline"}} 
+                            >
+                                LinkedIn
+                            </motion.a>
+                            <motion.a 
+                                href="https://github.com/AshutoshPradhan1195"
+                                target="_blank"
+                                className="hover:cursor-pointer py-1 text-gray-500" whileHover={{translateY:-2, textDecoration:"underline"}} >
+                                GitHub
+                            </motion.a>
+                            <motion.a 
+                                href="mailto:aashutoshpradhan1@gmail.com"
+                                target="_blank"
+                                className="hover:cursor-pointer py-1 text-gray-500" 
+                                whileHover={{translateY:-2, textDecoration:"underline"}} >
+                                Email
+                            </motion.a>
+                            
                         </div>
                         <div className="flex flex-col">
                             <div className="text-lg mb-2">Links</div>
-                            <div className="text-gray-500">About</div>
-                            <div className="text-gray-500">Work</div>
-                        </div>
-                        <div className="flex flex-col">
-                            <div className="text-lg mb-2">Credits</div>
-                            <div className="text-gray-500">© Ashutosh  {new Date().getFullYear()}</div>
+                            <motion.a 
+                                href="#aboutContainer"
+                                onClick={() => {
+                                    gsap.to(window, {
+                                        duration: 1,
+                                        scrollTo: "#aboutContainer",
+                                    })
+                                }}                                
+                                className="hover:cursor-pointer py-1 text-gray-500" 
+                                whileHover={{translateY:-2, textDecoration:"underline"}} 
+                            >
+                                About
+                            </motion.a>
+                            <motion.a 
+                                href="#projectContainer" 
+                                onClick={() => {
+                                    gsap.to(window, {
+                                        duration: 1,
+                                        scrollTo: "#projectContainer",
+                                    })
+                                }}       
+                                className="hover:cursor-pointer py-1 text-gray-500" 
+                                whileHover={{translateY:-2, textDecoration:"underline"}} 
+                            >
+                                Work
+                            </motion.a>
+
                         </div>
                     </div>
                     

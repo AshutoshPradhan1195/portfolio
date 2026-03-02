@@ -2,11 +2,12 @@
 
 import { useEffect } from "react";
 import gsap from "gsap"
-import { ScrollTrigger, ScrollSmoother } from "gsap/all"
+import { ScrollTrigger, ScrollSmoother, ScrollToPlugin } from "gsap/all"
 
 export default function SmoothProvider() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+    gsap.registerPlugin(ScrollToPlugin)
 
     const smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",

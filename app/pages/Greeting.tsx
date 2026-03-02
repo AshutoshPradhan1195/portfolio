@@ -112,20 +112,20 @@ export function GreetingSection({ id }: { id: number }) {
 
 
     return (
-        <section  className="z-1 sticky overflow-hidden  w-full h-screen!">
+        <section  className="z-1 sticky overflow-hidden  bg-[#0a0a0a]  w-full h-screen!">
             <div ref={blob1Ref} className="blob1 absolute left-[200px] top-0 -z-10" />
             <div ref={blob2Ref} className="blob2 absolute right-[100px] bottom-0 -z-10" />
             <div ref={blob3Ref} className="blob3 absolute right-[200px] top-0 -z-10" />
             <div ref={blob4Ref} className="blob4 absolute left-[100px] bottom-0 -z-10" />
 
 
-            <div ref={ref} className=" w-full px-5  h-full flex flex-col justify-center select-none ">
+            <div ref={ref} className=" w-full xl:px-10 px-5  h-full flex flex-col justify-center select-none ">
 
                 <div className="text-3xl! mb-5 impact">
                     Hey, I am
                 </div>
 
-                <h1 className=" text-9xl wrapper h-2.5!  ">
+                <h1 className=" md:text-9xl text-6xl wrapper h-2.5!  ">
                     <div className="typing-demo ">
                        {text}
                     </div>
