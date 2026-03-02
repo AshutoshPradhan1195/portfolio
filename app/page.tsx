@@ -8,6 +8,8 @@ import { useEffect } from "react"
 import { GreetingSection } from "./pages/Greeting"
 import ProjectsSection from "./pages/Projects"
 import Timeline from "./pages/Timeline"
+import TimelineSection from "./pages/Timeline"
+import Footer from "./pages/Footer"
 
 
 export default function Home() {
@@ -62,9 +64,9 @@ export default function Home() {
     <>
       <main  className="min-h-screen w-full flex flex-col justify-start items-center pt-10 ">
           <GreetingSection id={1}/>
-          <Timeline id={2}/>
-          <ProjectsSection id={3}/>
-
+          <ProjectsSection id={2}/>
+          <TimelineSection id={3}/>
+          <Footer id={4}/>
       </main>
     </>
 

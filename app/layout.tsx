@@ -42,8 +42,8 @@ export default function RootLayout({
         <div id="smooth-wrapper">
             <div id="smooth-content">
 
-              <div className="flex flex-col justify-center w-full items-center">
-                <div className="flex flex-col justify-center max-w-7xl w-full select-none items-center">
+              <div className="flex flex-col justify-center w-full items-center max-w-[2500px]  w-full">
+                <div className="flex flex-col justify-center   w-full select-none items-center">
                   <Navbar />
                   <div className="w-full">
                     {children}

@@ -5,25 +5,27 @@ import kakhani from "../images/kakhani.png"
 import anyani from "../images/anyani.png"
 import heroeshive from "../images/heroeshive.png"
 import Image, { StaticImageData } from "next/image"
+import gsap, { ScrollTrigger } from "gsap/all"
+import { useEffect } from "react"
 
 const projects = [
     {
         title: "Heroeshive",
         image: heroeshive,
         url: "https://heroeshive.com/",
-        description: "A creative service platform delivering scalable branding, digital systems, and high-performance web experiences."
+        description: "Heroeshive is a full-scale creative service platform built to help startups and growing brands establish powerful digital identities. It combines strategic branding, scalable design systems, and high-performance web engineering to deliver cohesive, conversion-focused experiences. From visual identity creation to frontend architecture and backend system design, the platform emphasizes clean UI, optimized performance, and long-term maintainability."
     },
     {
-        title: "Ka Khani",
+        title: "KaKhani",
         image: kakhani,
         url: "https://kakhani.netlify.app/",
-        description: "A restaurant review platform where user submissions are analyzed and automatically rated using NLP-driven sentiment modeling."
+        description: "KaKhani is an intelligent restaurant discovery and review platform that enhances user feedback through automated NLP-based sentiment analysis. Instead of relying solely on manual ratings, the system processes written reviews, evaluates tone and context, and generates dynamic scoring based on language patterns. Built with a focus on data-driven insights and user engagement, the platform merges social interaction with machine learning to provide more accurate and meaningful restaurant evaluations."
     },
     {
-        title: "Any Ani",
+        title: "AnyAni",
         image: anyani,
         url: "https://anyani.netlify.app/",
-        description: "An AI-powered animated image generator built on a ResNet-18 neural network architecture."
+        description: "AnyAni is an AI-powered animated image generation system built on a ResNet-18 neural network architecture. It leverages deep learning techniques to transform static visual inputs into stylized animated outputs, demonstrating the integration of computer vision and generative modeling. The project explores neural feature extraction, training pipelines, and inference optimization, showcasing how lightweight convolutional architectures can be adapted for creative AI applications."
     }
 ]
 
@@ -39,98 +41,143 @@ function ProjectCard({
     url: string
 }) {
     return (
-        <motion.a
+        <a
             href={url}
             target="_blank"
-            whileHover={{ scale: 1.03 }}
-
-        onHoverStart={() => {
-            const circleElement = document.getElementById("circle")
-            const innerCircle = document.getElementById("innercircle")
-
-            if(circleElement){
-                circleElement.style.borderColor = "#3e4ab299"
-                circleElement.style.borderWidth = "4px"
-            }
-            if(innerCircle){
-                innerCircle.style.backgroundColor = "#3e4ab299"
-
-            }
-        }}
-        onHoverEnd={() => {
-            const circleElement = document.getElementById("circle")
-            const innerCircle = document.getElementById("innercircle")
-
-            if(circleElement){
-                circleElement.style.borderColor = "white"
-                circleElement.style.borderWidth = "2px"
-
-            }
-            if(innerCircle){
-                innerCircle.style.backgroundColor = "white"
-            }
-        }}
-
-        
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="flex flex-row items-center text-center gap-6 flex-row-reverse cursor-pointer"
+            id={title}
+            className="group relative w-[60vw] h-[70vh] aspect-video cursor-pointer"
         >
-            <div className="relative w-[400px] max-w-[90vw]">
-                <Image
-                    src={image}
-                    alt={title}
-                    className="object-cover rounded-xl   w-full h-auto"
-                />
-            </div>
+            <div className="relative w-full h-full perspective">
 
-            <div className="flex flex-col justify-end  text-left w-[250px]  tracking-tight">
+                {/* CARD INNER */}
+                <div className="relative w-full h-full duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+2px
+                    {/* FRONT */}
+                    <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-[#0a0a0a] text-white p-[2px] flex flex-col">
+                        <div className="relative w-full flex-1">
+                            <Image
+                                src={image}
+                                alt={title}
+                                className="object-cover object-center rounded-lg aspect-video w-full h-full"
+                            />
+                        </div>
 
-                <h2 className="font-elegant text-4xl mb-2">
-                    {title}
-                </h2>
-                <span className="text-gray-400 text-sm leading-tight">{description}</span>
-            </div>
-        </motion.a>
-    )
-}
+                    </div>
 
-export default function ProjectSection({id}: {id: number}) {
-    return (
-        <section  className="w-full z-4 bg-[#0a0a0a] text-white border-t border-gray-700">
+                    {/* BACK */}
+                    <div className="absolute inset-0 rotate-y-180 backface-hidden rounded-xl bg-[#0a0a0a] text-white  p-10 flex flex-col justify-center">
+                        <h2 className="font-elegant text-4xl font-bold mb-6">
+                            {title}
+                        </h2>
 
-            {/* HEADER */}
-            <div className=" text-left min-h-fit pt-30 pb-20 flex flex-col justify-center items-left  px-6">
-                <div className="max-w-2xl">
-                    <h1 className="font-elegant text-6xl mb-2">
-                        My Work
-                    </h1>
+                        <p className="text-sm leading-relaxed">
+                            {description}
+                        </p>
 
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                        Designing and engineering scalable digital systems —
-                        from high-performance frontends to intelligent backend
-                        architectures powered by data and AI.
-                    </p>
+                        <span className="mt-8 text-sm uppercase tracking-widest hover:underline">
+                            Visit Project →
+                        </span>
+                    </div>
+
                 </div>
             </div>
+        </a>
+    )
+}
+export default function ProjectSection({id}: {id: number}) {
+    useEffect(() => {
 
-            {/* PROJECTS */}
-            <div className="flex flex-col  w-full pb-30  gap-25">
+        const cards = gsap.utils.toArray<HTMLElement>("[data-project]")
 
-                {projects.map((project, index) => (
+        cards.forEach((card, index) => {
+            ScrollTrigger.create({
+                trigger: card,
+                start: "top top",
+                end: index === 0 ? "+=320%" : index === 1 ? "+=200%" : "+=100%"  ,
+                pin: true,
+                pinSpacing: false,
+                scrub: true,
+                markers:true
+            })
+        })
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
+    
+
+    return (
+
+        <>
+        <div id="projectContainer" className=" w-full z-4 h-full  flex items-center justify-center ">
+
+            <motion.section  className=" w-full h-full items-center rounded-4xl justify-center px-5  overflow-hidden bg-white text-black!  "
+            onHoverStart={() => {
+                const circleElement = document.getElementById("circle")
+                const innerCircle = document.getElementById("innercircle")
+
+                if(circleElement){
+                    circleElement.style.borderColor = "black"
+                    circleElement.style.borderWidth = "2px"
+                }
+                if(innerCircle){
+                    innerCircle.style.backgroundColor = "black"
+
+                }
+            }}
+            onHoverEnd={() => {
+                const circleElement = document.getElementById("circle")
+                const innerCircle = document.getElementById("innercircle")
+
+                if(circleElement){
+                    circleElement.style.borderColor = "white"
+                    circleElement.style.borderWidth = "2px"
+
+                }
+                if(innerCircle){
+                    innerCircle.style.backgroundColor = "white"
+                }
+            }}
+            >
+
+                {/* HEADER */}
+                <div className="text-left   py-10   flex flex-col justify-center items-left">
+                    <div className="max-w-2xl">
+                        <h1 className="font-elegant text-6xl mb-2 font-bold">
+                            Selected Work
+                        </h1>
+
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Designing and engineering scalable digital systems —
+                            from high-performance frontends to intelligent backend
+                            architectures powered by data and AI.
+                        </p>
+                    </div>
+                </div>
+
+                {/* PROJECTS */}
+                <div className="flex flex-col h-full! w-full   gap-25">
+
+                    {projects.map((project, index) => (
                     <div
                         key={index}
-                        className={index %2 === 0? "min-h-fit w-full items-center justify-center flex md:items-end md:justify-end px-6" : "min-h-fit w-full flex md:items-center md:justify-center px-6"}
+                        data-project
+                        className="h-screen w-full flex items-center justify-center px-6 "
                     >
-                        <ProjectCard
-                            description={project.description}
-                            title={project.title}
-                            image={project.image}
-                            url={project.url}
-                        />
-                    </div>
-                ))}
+                            <ProjectCard
+                                description={project.description}
+                                title={project.title}
+                                image={project.image}
+                                url={project.url}
+                            />
+                        </div>
+                    ))}
 
-            </div>
-        </section>
+                </div>
+            </motion.section>
+        </div>
+
+        </>
     )
 }
