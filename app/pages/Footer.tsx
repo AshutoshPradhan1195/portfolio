@@ -44,8 +44,8 @@ export default function Footer() {
     return (
 
         <>
-            <div  className=" w-full z-7 h-fit flex items-center justify-center">
-                <motion.section  className="w-full h-full flex md:flex-row flex-col justify-between items-center md:gap-2 gap-2 py-4  text-black! bg-white  xl:px-10 px-5"
+            <div  className=" w-full z-7 h-fit flex items-center justify-center border-t border-gray-300 bg-white">
+                <motion.section  className="w-full h-full flex md:flex-row flex-col justify-between items-center md:gap-2 gap-2 py-4  text-black!   xl:px-10 px-5"
                     onHoverStart={() => {
                     const circleElement = document.getElementById("circle")
                     const innerCircle = document.getElementById("innercircle")
