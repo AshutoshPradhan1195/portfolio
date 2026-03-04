@@ -2,12 +2,66 @@
 
 import gsap, { SplitText } from "gsap/all";
 import { motion } from "motion/react"
-import { useEffect } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 
-import MoveYAxisOnHover from "../components/motion/MoveYAxisOnHover";
+
+interface PageFooterLinks {
+    href:string,
+    name:string,
+    onClick?:(() => {})
+}
+
+
+const homeLinkData:PageFooterLinks[] = [
+    {
+        href:"#projectContainer",
+        name:"Work",
+        onClick:() => 
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: "#projectContainer",
+            })
+    },
+    {
+        href:"#aboutContainer",
+        name:"About",
+        onClick:() => 
+            gsap.to(window, {
+                duration: 1,
+                scrollTo: "#aboutContainer",
+            })
+    },
+    {
+        href:"/timeline",
+        name:"Timeline",
+    }
+]
+
+
+const linkData:PageFooterLinks[] = [
+    {
+        href:"/",
+        name:"Home",
+    },
+    {
+        href:"/timeline",
+        name:"Timeline",
+    },
+    {
+        href:"/blog",
+        name:"Blog",
+    },
+]
 
 
 export default function Footer() {
+
+
+    const [isHome, setIsHome] = useState(true)
+
+    useLayoutEffect(() =>{
+        window.location.pathname === "/" ? setIsHome(true) : setIsHome(false)
+    }, [])
 
     useEffect(() => {
         gsap.registerPlugin(SplitText);
@@ -103,32 +157,36 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col">
                             <div className="text-lg mb-2">Links</div>
-                            <motion.a 
-                                href="#aboutContainer"
-                                onClick={() => {
-                                    gsap.to(window, {
-                                        duration: 1,
-                                        scrollTo: "#aboutContainer",
-                                    })
-                                }}                                
-                                className="hover:cursor-pointer py-1 text-gray-500" 
-                                whileHover={{translateY:-2, textDecoration:"underline"}} 
-                            >
-                                About
-                            </motion.a>
-                            <motion.a 
-                                href="#projectContainer" 
-                                onClick={() => {
-                                    gsap.to(window, {
-                                        duration: 1,
-                                        scrollTo: "#projectContainer",
-                                    })
-                                }}       
-                                className="hover:cursor-pointer py-1 text-gray-500" 
-                                whileHover={{translateY:-2, textDecoration:"underline"}} 
-                            >
-                                Work
-                            </motion.a>
+                            {isHome? 
+                                homeLinkData.map((data) => {
+                                    return(
+                                        <motion.a 
+                                            key={data.href}
+                                            href={data.href} 
+                                            className="hover:cursor-pointer py-1 text-gray-500" 
+                                            onClick={data.onClick}
+                                            whileHover={{translateY:-2, textDecoration:"underline"}} 
+                                        >
+                                            {data.name}
+                                        </motion.a>
+                                    )
+                                })
+                                : 
+                                <>
+                                    {linkData.map((data) => {
+                                        return (
+                                            <motion.a 
+                                                className="hover:cursor-pointer py-1 text-gray-500" 
+                                                whileHover={{translateY:-2, textDecoration:"underline"}} 
+                                                href={data.href} key={data.href}
+                                            >
+                                                {data.name}
+                                            </motion.a>
+                                        )
+                                    })}
+                                </>
+                            }
+
 
                         </div>
                     </div>

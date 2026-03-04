@@ -18,8 +18,9 @@ function Navbar(){
 }
 
 function QuickLinks(){
+    
 
-    const [isHome, setIsHome] = useState(true)
+    const [isHome, setIsHome] = useState(false)
 
     useLayoutEffect(() =>{
         window.location.pathname === "/" ? setIsHome(true) : setIsHome(false)
@@ -65,11 +66,16 @@ function QuickLinks(){
                     </MoveYAxisOnHover>
                 </>
             }
-            
-
+        
             <div className="text-gray-500">;</div>
             <MoveYAxisOnHover y={-2}>
                 <motion.a href="/timeline" className="hover:cursor-pointer">Timeline</motion.a>
+            </MoveYAxisOnHover>
+
+            
+            <div className="text-gray-500">;</div>
+            <MoveYAxisOnHover y={-2}>
+                <motion.a href="/blog" className="hover:cursor-pointer">Blog</motion.a>
             </MoveYAxisOnHover>
         </div>
 

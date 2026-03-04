@@ -25,7 +25,6 @@ export function GreetingSection({ id }: { id: number }) {
     const blob3Ref = useRef<HTMLDivElement>(null)
     const blob4Ref = useRef<HTMLDivElement>(null)
 
-
     useEffect(() => {
         const mouse = { x: 0, y: 0 }
         const blob1Pos = { x: 0, y: 0 }

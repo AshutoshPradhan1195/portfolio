@@ -1,9 +1,6 @@
 "use client"
 
 import { motion } from "motion/react"
-import kakhani from "../images/kakhani.png"
-import anyani from "../images/anyani.png"
-import heroeshive from "../images/heroeshive.png"
 import Image, { StaticImageData } from "next/image"
 import gsap, { ScrollTrigger } from "gsap/all"
 import { useEffect } from "react"
@@ -11,19 +8,19 @@ import { useEffect } from "react"
 const projects = [
     {
         title: "Heroeshive",
-        image: heroeshive,
+        image: "heroeshive.png",
         url: "https://heroeshive.com/",
         description: "Heroeshive is a full-scale creative service platform built to help startups and growing brands establish powerful digital identities. It combines strategic branding, scalable design systems, and high-performance web engineering to deliver cohesive, conversion-focused experiences. From visual identity creation to frontend architecture and backend system design, the platform emphasizes clean UI, optimized performance, and long-term maintainability."
     },
     {
         title: "KaKhani",
-        image: kakhani,
+        image: "kakhani.png",
         url: "https://kakhani.netlify.app/",
         description: "KaKhani is an intelligent restaurant discovery and review platform that enhances user feedback through automated NLP-based sentiment analysis. Instead of relying solely on manual ratings, the system processes written reviews, evaluates tone and context, and generates dynamic scoring based on language patterns. Built with a focus on data-driven insights and user engagement, the platform merges social interaction with machine learning to provide more accurate and meaningful restaurant evaluations."
     },
     {
         title: "AnyAni",
-        image: anyani,
+        image: "anyani.png",
         url: "https://anyani.netlify.app/",
         description: "AnyAni is an AI-powered animated image generation system built on a ResNet-18 neural network architecture. It leverages deep learning techniques to transform static visual inputs into stylized animated outputs, demonstrating the integration of computer vision and generative modeling. The project explores neural feature extraction, training pipelines, and inference optimization, showcasing how lightweight convolutional architectures can be adapted for creative AI applications."
     }
@@ -36,7 +33,7 @@ function ProjectCard({
     url,
 }: {
     title: string
-    image: StaticImageData
+    image: string
     description: string
     url: string
 }) {
@@ -52,7 +49,7 @@ function ProjectCard({
                 <div className="relative w-full h-full duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
                     <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden  text-white flex flex-col">
                         <div className="relative w-full flex-1">
-                            <Image
+                            <img
                                 src={image}
                                 alt={title}
                                 className="object-cover rounded-lg w-full h-full"
