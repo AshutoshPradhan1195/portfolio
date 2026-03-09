@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react"
 import { useParallax } from "../util"
 import gsap from "gsap"
 import { ScrollTrigger, ScrollSmoother } from "gsap/all"
+import {motion} from "motion/react"
+import MoveYAxisOnHover from "../components/motion/MoveYAxisOnHover"
 
 
 const titles = [
@@ -112,10 +114,10 @@ export function GreetingSection({ id }: { id: number }) {
 
     return (
         <section  className="z-1 sticky overflow-hidden  bg-[#0a0a0a]  w-full h-screen!">
-            <div ref={blob1Ref} className="blob1 absolute left-[200px] top-0 -z-10" />
-            <div ref={blob2Ref} className="blob2 absolute right-[100px] bottom-0 -z-10" />
-            <div ref={blob3Ref} className="blob3 absolute right-[200px] top-0 -z-10" />
-            <div ref={blob4Ref} className="blob4 absolute left-[100px] bottom-0 -z-10" />
+            <div ref={blob1Ref} className="blob1 absolute left-50 top-0 -z-10" />
+            <div ref={blob2Ref} className="blob2 absolute right-25 bottom-0 -z-10" />
+            <div ref={blob3Ref} className="blob3 absolute right-50 top-0 -z-10" />
+            <div ref={blob4Ref} className="blob4 absolute left-25 bottom-0 -z-10" />
 
 
             <div ref={ref} className=" w-full xl:px-10 px-5  h-full flex flex-col justify-center select-none ">
@@ -129,6 +131,7 @@ export function GreetingSection({ id }: { id: number }) {
                        {text}
                     </div>
                 </h1>
+
 
                 
             </div>

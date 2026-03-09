@@ -42,7 +42,7 @@ function ProjectCard({
             href={url}
             target="_blank"
             id={title}
-            className="group relative md:w-[70vw] w-[90vh] h-[70vh]  cursor-pointer border rounded-xl"
+            className="group relative md:w-[70vw] w-[90vh] h-[70vh]  cursor-pointer border border-gray-300 rounded-xl"
         >
             <div className="relative w-full h-full perspective">
 
@@ -152,11 +152,11 @@ export default function ProjectSection({id}: {id: number}) {
                 <div className="flex flex-col h-full! w-full   gap-25">
 
                     {projects.map((project, index) => (
-                    <div
-                        key={index}
-                        data-project
-                        className="h-screen w-full flex items-center justify-center md:px-5 "
-                    >
+                        <div
+                            key={index}
+                            data-project
+                            className="h-screen w-full flex items-center justify-center md:px-5 "
+                        >
                             <ProjectCard
                                 description={project.description}
                                 title={project.title}
@@ -165,7 +165,6 @@ export default function ProjectSection({id}: {id: number}) {
                             />
                         </div>
                     ))}
-
                 </div>
             </motion.section>
         </section>

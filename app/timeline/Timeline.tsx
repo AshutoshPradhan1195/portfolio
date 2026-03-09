@@ -82,6 +82,18 @@ function ExperienceBack() {
         <div className="w-full h-fit  p-2">
             <ResumeSection title="Experience">
                 <ResumeItem
+                    title="FiveOne"
+                    subtitle="Software Developer"
+                    date="August 10, 2025 – Present"
+                    bullets={[
+                        "Developed and maintained a cross-platform mobile application using React Native, delivering a seamless user experience on both Android and iOS while ensuring consistent UI and performance.",
+                        "Built and integrated a React-based content and advertisement management platform, enabling administrators to manage app content, promotional banners, and dynamic updates without requiring mobile app redeployments.",
+                        "Designed and consumed RESTful APIs to synchronize mobile app data with backend services, enabling real-time content delivery, user interactions, and advertisement updates.",
+                        "Optimized mobile performance through efficient API handling, lazy loading of assets, and structured component rendering, resulting in smoother navigation and reduced load times.",
+                        "Collaborated across frontend and backend layers to design scalable data flows between the mobile client, web admin dashboard, and backend services, ensuring a consistent and reliable user experience."
+                    ]}
+                />
+                <ResumeItem
                     title="Gunasys"
                     subtitle="Software Developer"
                     date="April 30, 2024 – August 10, 2025"

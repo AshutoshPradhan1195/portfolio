@@ -31,6 +31,7 @@ export default function RootLayout({
   
     <html lang="en">
       <head>
+        <title>Ashutosh Pradhan</title>
        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
       </head>
       <body

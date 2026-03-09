@@ -51,14 +51,14 @@ export default function AboutSection({id}: {id: number}) {
                     </p>
                 </div>
                 <h1 className="description md:text-4xl sm:text-2xl text-xl mt-12 font-normal  text-gray-500 leading-tight ">
-                    Hi! I'm Ashutosh. I’m a Software Engineer who enjoys building structured, scalable digital systems. 
+                    Hi! I'm Ashutosh. I'm a Software Engineer who enjoys building structured, scalable digital systems. 
                     I care about building things. 
                     I care about building things the right way, so that they last. 
                     Learning new things along the way, that's what it's all about.                         
                 </h1>
 
                 <div className="w-fit mt-10">
-                    <MoveYAxisOnHover y={-10}>
+                    <MoveYAxisOnHover y={-4}>
                         <motion.a href="/timeline" className="w-fit p-2 md:text-2xl sm:text-xl text-lg bg-gray-100 text-black rounded-xl">
                             Check my timeline
                         </motion.a>
