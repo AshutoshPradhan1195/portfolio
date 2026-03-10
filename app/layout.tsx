@@ -24,8 +24,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-    
-
   return (
 
   
@@ -41,7 +39,7 @@ export default function RootLayout({
         <CircleMotionProvider/>
         <SmoothProvider />
         <div id="circle" className="max-md:hidden z-50 flex fixed pointer-events-none justify-center items-center w-10 h-10 top-[-20] left-[-20] border-white border-2 rounded-full "/>
-          <div id="innercircle" className="max-md:hidden z-50 pointer-events-none fixed top-[-2] left-[-2] w-2 h-2 bg-white rounded-full"/>
+        <div id="innercircle" className="max-md:hidden z-50 pointer-events-none fixed top-[-2] left-[-2] w-2 h-2 bg-white rounded-full"/>
 
         <PaddingContextProvider>
           <div id="smooth-wrapper" >

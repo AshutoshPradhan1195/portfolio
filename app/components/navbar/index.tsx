@@ -7,7 +7,7 @@ import gsap from "gsap/all";
 
 function Navbar(){
     return (
-        <nav className="z-40 w-full h-13 xl:px-10 px-5 pt-4 pb-4 box-border sticky! top-0 flex flex-row justify-between items-center navbg " >
+        <nav className="z-40 w-full h-13 xl:px-10 px-5 pt-4 pb-4 box-border  top-0 flex flex-row justify-between items-center navbg" >
             <motion.a href={"/"} className="border p-1 px-2 hover:cursor-pointer font-timesnewroman ">
                 AP
             </motion.a>  
@@ -20,14 +20,14 @@ function Navbar(){
 function QuickLinks(){
     
 
-    const [isHome, setIsHome] = useState(false)
+    const [isHome, setIsHome] = useState(true)
 
     useLayoutEffect(() =>{
         window.location.pathname === "/" ? setIsHome(true) : setIsHome(false)
     }, [])
     
     return(
-        <div className="flex flex-row items-center md:gap-5 gap-3 text-xs ">
+        <div className="flex flex-row items-center md:gap-5 gap-3 text-xs  ">
 
             {isHome ? 
                 <>

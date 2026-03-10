@@ -84,7 +84,7 @@ export default function BlogSection(){
                 </div>
                 <div id="" className="flex gap-4 mt-5  h-full justify-center items-center">
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10  w-full justify-center items-center ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5  w-full justify-center items-center ">
                         {section === "Recommended" ? 
                             <>
                                 {articleData.map((article) => {

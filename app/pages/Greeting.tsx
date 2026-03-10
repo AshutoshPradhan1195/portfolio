@@ -113,7 +113,7 @@ export function GreetingSection({ id }: { id: number }) {
 
 
     return (
-        <section  className="z-1 sticky overflow-hidden  bg-[#0a0a0a]  w-full h-screen!">
+        <section  className="z-1 sticky!  bg-[#0a0a0a]  w-full! h-screen!">
             <div ref={blob1Ref} className="blob1 absolute left-50 top-0 -z-10" />
             <div ref={blob2Ref} className="blob2 absolute right-25 bottom-0 -z-10" />
             <div ref={blob3Ref} className="blob3 absolute right-50 top-0 -z-10" />

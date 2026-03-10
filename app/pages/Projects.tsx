@@ -26,6 +26,7 @@ const projects = [
     }
 ]
 
+
 function ProjectCard({
     title,
     image,
@@ -42,11 +43,11 @@ function ProjectCard({
             href={url}
             target="_blank"
             id={title}
-            className="group relative md:w-[70vw] w-[90vh] h-[70vh]  cursor-pointer border border-gray-300 rounded-xl"
+            className="group relative md:w-[70vw] w-[90vh] md:h-[70vh] h-[30vh]  cursor-pointer border border-gray-300 rounded-xl"
         >
             <div className="relative w-full h-full perspective">
 
-                <div className="relative w-full h-full duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+                <div className="relative w-full h-full duration-700 transform-style-preserve-3d md:group-hover:rotate-y-180">
                     <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden  text-white flex flex-col">
                         <div className="relative w-full flex-1">
                             <img
@@ -134,7 +135,7 @@ export default function ProjectSection({id}: {id: number}) {
             >
 
                 {/* HEADER */}
-                <div className="text-left py-10   flex flex-col justify-center items-left">
+                <div className="text-left md:py-10 pt-10 pb-5 flex flex-col justify-center items-left">
                     <div className="max-w-2xl">
                         <h1 className="font-elegant md:text-6xl text-4xl mb-2 font-bold">
                             Selected Work
@@ -149,13 +150,33 @@ export default function ProjectSection({id}: {id: number}) {
                 </div>
 
                 {/* PROJECTS */}
-                <div className="flex flex-col h-full! w-full   gap-25">
+                <div className="flex-col h-full! w-full md:flex hidden  ">
 
                     {projects.map((project, index) => (
                         <div
                             key={index}
                             data-project
-                            className="h-screen w-full flex items-center justify-center md:px-5 "
+                            className="h-screen  w-full flex items-center justify-center md:px-5 "
+                        >
+                            <ProjectCard
+                                description={project.description}
+                                title={project.title}
+                                image={project.image}
+                                url={project.url}
+                            />
+                        </div>
+                    ))}
+                </div>
+
+
+                 {/* MOBILE PROJECTS */}
+                <div className="flex-col h-full! w-full md:hidden flex gap-5 pb-10">
+
+                    {projects.map((project, index) => (
+                        <div
+                            key={index}
+                            className="w-full flex items-center justify-center md:px-5"
+
                         >
                             <ProjectCard
                                 description={project.description}

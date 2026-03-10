@@ -15,7 +15,8 @@ export default function SmoothProvider() {
       smooth: 1,
       effects: true,
       normalizeScroll: true,
-      ignoreMobileResize: true,
+      ignoreMobileResize: false,
+      
     })
 
     return () => {
