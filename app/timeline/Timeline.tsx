@@ -1,5 +1,5 @@
 "use client"
-import {HTMLMotionProps, motion} from "motion/react"
+import { HTMLMotionProps, motion } from "motion/react"
 import { useState } from "react"
 
 
@@ -17,7 +17,7 @@ function ResumeCards({ back, ...props }: ResumeCardsProps) {
         >
             <div className={`md:p-10 p-7 h-full w-full justify-center items-center flex rounded-2xl  text-black`}>
                 {back}
-            </div>  
+            </div>
         </motion.div>
     )
 }
@@ -35,7 +35,7 @@ function ResumeSection({ title, children }: SectionProps) {
                 {title}
             </h2>
             {children}
-            <hr className="bg-gray-300 text-gray-300"/>
+            <hr className="bg-gray-300 text-gray-300" />
         </div>
     )
 }
@@ -81,7 +81,7 @@ function ExperienceBack() {
     return (
         <div className="w-full h-fit  p-2">
             <ResumeSection title="Experience">
-                <ResumeItem
+                {/* <ResumeItem
                     title="FiveOne"
                     subtitle="Software Developer"
                     date="August 10, 2025 – Present"
@@ -92,7 +92,7 @@ function ExperienceBack() {
                         "Optimized mobile performance through efficient API handling, lazy loading of assets, and structured component rendering, resulting in smoother navigation and reduced load times.",
                         "Collaborated across frontend and backend layers to design scalable data flows between the mobile client, web admin dashboard, and backend services, ensuring a consistent and reliable user experience."
                     ]}
-                />
+                /> */}
                 <ResumeItem
                     title="Gunasys"
                     subtitle="Software Developer"
@@ -129,7 +129,7 @@ function ExperienceBack() {
     )
 }
 
-function ProjectBack(){
+function ProjectBack() {
     return (
         <div className="w-full h-fit p-2">
 
@@ -218,15 +218,15 @@ function MeSection() {
                     <div className="flex justify-between items-start ">
                         <div>
                             <h3 className="font-semibold text-xl mb-2">Software Engineer</h3>
-                            
-                                <p className="text-sm text-gray-600">
-                                    Results-driven Software Developer with hands-on experience building scalable applications, with goals to deepen my expertise in
-                                    distributed systems, and AI-driven solutions. 
-                                    Committed to designing high-performance systems with the long-term goal of
-                                    becoming a skilled software architect that solves complex real-world problems and creates meaningful impact
-                                </p>
-                            
-                        </div>                
+
+                            <p className="text-sm text-gray-600">
+                                Results-driven Software Developer with hands-on experience building scalable applications, with goals to deepen my expertise in
+                                distributed systems, and AI-driven solutions.
+                                Committed to designing high-performance systems with the long-term goal of
+                                becoming a skilled software architect that solves complex real-world problems and creates meaningful impact
+                            </p>
+
+                        </div>
                     </div>
 
 
@@ -249,8 +249,8 @@ function SkillsSection() {
                     <button
                         onClick={() => setSkillToggle("skills")}
                         className={`px-4 py-1 text-sm rounded-full border transition 
-                            ${skillToggle === "skills" 
-                                ? "bg-black text-white" 
+                            ${skillToggle === "skills"
+                                ? "bg-black text-white"
                                 : "bg-white text-black"}`}
                     >
                         Skills
@@ -259,8 +259,8 @@ function SkillsSection() {
                     <button
                         onClick={() => setSkillToggle("tools")}
                         className={`px-4 py-1 text-sm rounded-full border transition 
-                            ${skillToggle === "tools" 
-                                ? "bg-black text-white" 
+                            ${skillToggle === "tools"
+                                ? "bg-black text-white"
                                 : "bg-white text-black"}`}
                     >
                         Tools
@@ -280,17 +280,17 @@ function SkillsGrid() {
 
             <SkillGroup
                 title="Languages"
-                 items={["Java", "Python", "C#", "JavaScript"]}
+                items={["Java", "Python", "C#", "JavaScript"]}
             />
 
             <SkillGroup
                 title="Frontend"
-                 items={["React.js", "React Native", "Next.js", "Context API", "Vue"]}
+                items={["React.js", "React Native", "Next.js", "Context API", "Vue"]}
             />
 
             <SkillGroup
                 title="Backend"
-                 items={["Node.js", "FastAPI", "Spring Boot", "Django"]}
+                items={["Node.js", "FastAPI", "Spring Boot", "Django"]}
             />
 
             <SkillGroup
@@ -300,12 +300,12 @@ function SkillsGrid() {
 
             <SkillGroup
                 title="Machine Learning"
-                 items={["TensorFlow", "PyTorch"]}
+                items={["TensorFlow", "PyTorch"]}
             />
 
             <SkillGroup
                 title="Methodologies & Architecture"
-                 items={["Agile", "REST APIs", "Microservices", "GraphQL"]}
+                items={["Agile", "REST APIs", "Microservices", "GraphQL"]}
             />
 
         </div>
@@ -345,7 +345,7 @@ function ToolsGrid() {
             />
             <SkillGroup
                 title="Operating Systems"
-                 items={["Windows", "Linux"]}
+                items={["Windows", "Linux"]}
             />
         </div>
     )
@@ -374,20 +374,20 @@ function SkillGroup({ title, items }: SkillGroupProps) {
 
 export default function TimelineComponent() {
     return (
-        <motion.section 
+        <motion.section
             className="grid md:grid-cols-2 grid-cols-1 md:w-[70vw] h-full w-full pt-10 xl:px-10 px-5 gap-10 "
         >
             <ResumeCards
-                style={{gridColumn:"span 2"}}
+                style={{ gridColumn: "span 2" }}
                 back={<MeSection />}
             />
             <ResumeCards
-                style={{gridColumn:"span 2"}}
+                style={{ gridColumn: "span 2" }}
                 back={<ExperienceBack />}
             />
 
             <ResumeCards
-                style={{gridColumn:"span 2"}}
+                style={{ gridColumn: "span 2" }}
                 back={<ProjectBack />}
             />
             <ResumeCards
@@ -400,7 +400,7 @@ export default function TimelineComponent() {
             />
 
             <ResumeCards
-                style={{gridColumn:"span 2"}}
+                style={{ gridColumn: "span 2" }}
                 back={<SkillsSection />}
             />
         </motion.section>
