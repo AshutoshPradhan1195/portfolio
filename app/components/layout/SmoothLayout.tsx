@@ -9,17 +9,22 @@ export default function SmoothProvider() {
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
     gsap.registerPlugin(ScrollToPlugin)
 
-    const smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 2,
-      effects: true,
-      normalizeScroll: true,
-      ignoreMobileResize: false,
-    })
 
-    return () => {
-      smoother.kill()
+    const isTouchCapable = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+    if(!isTouchCapable){
+      const smoother = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 2,
+        effects: true,
+        normalizeScroll: true,
+        ignoreMobileResize: false,
+      })
+
+      return () => {
+        smoother.kill()
+      }
     }
   }, [])
 
